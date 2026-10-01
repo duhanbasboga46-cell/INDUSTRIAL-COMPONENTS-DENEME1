@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endüstriyel Komponent Gezgini</title>
+    <meta name="description" content="Endüstriyel sektör, makine ve komponent gezgini - Sektörlere göre makineleri ve komponentleri keşfedin.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           CSS DESIGN SYSTEM
+           ======================================== */
+        :root {
+            /* Primary Palette - Industrial Navy */
+            --navy-900: #0a1628;
+            --navy-800: #0f2140;
+            --navy-700: #142c54;
+            --navy-600: #1a3a6c;
+            --navy-500: #1e4d8f;
+            --navy-400: #2563a8;
+            --navy-300: #4a8fd4;
+
+            /* Neutral Palette */
+            --gray-50: #f8f9fb;
+            --gray-100: #f0f2f5;
+            --gray-200: #e2e5ea;
+            --gray-300: #c8cdd5;
+            --gray-400: #9aa1ae;
+            --gray-500: #6b7385;
+            --gray-600: #4a5264;
+            --gray-700: #353c4e;
+            --gray-800: #232938;
+            --gray-900: #141824;
+
+            /* Accent */
+            --accent-blue: #3b82f6;
+            --accent-blue-light: #60a5fa;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.04);
+            --shadow-md: 0 4px 12px rgba(10, 22, 40, 0.08);
+            --shadow-lg: 0 8px 30px rgba(10, 22, 40, 0.12);
+            --shadow-xl: 0 16px 48px rgba(10, 22, 40, 0.16);
+            --shadow-card-hover: 0 12px 36px rgba(10, 22, 40, 0.14);
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           HEADER
+           ======================================== */
+        .header {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--navy-400) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .header-badge .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        /* ========================================
+           BREADCRUMB
+           ======================================== */
+        .breadcrumb-bar {
+            padding: 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 48px;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.45);
+            cursor: default;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb-item.clickable {
+            cursor: pointer;
+        }
+
+        .breadcrumb-item.clickable:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .breadcrumb-item.active {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+        }
+
+        .breadcrumb-separator {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 11px;
+            user-select: none;
+        }
+
+        .breadcrumb-icon {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ========================================
+           MAIN CONTENT
+           ======================================== */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px 80px;
+        }
+
+        /* ========================================
+           SCREEN HEADER
+           ======================================== */
+        .screen-header {
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeSlideIn 0.5s ease forwards;
+        }
+
+        .screen-header h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--navy-900);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .screen-header p {
+            font-size: 15px;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .screen-header .count-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 6px 14px;
+            background: var(--navy-900);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 100px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ========================================
+           CARD GRID
+           ======================================== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           SECTOR & MACHINE CARDS
+           ======================================== */
+        .card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 28px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--navy-600), var(--accent-blue));
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .card:hover {
+            border-color: var(--navy-300);
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:active {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .card-icon.sector {
+            background: linear-gradient(135deg, rgba(26, 58, 108, 0.08) 0%, rgba(37, 99, 168, 0.08) 100%);
+        }
+
+        .card-icon.machine {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(96, 165, 250, 0.08) 100%);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .card-arrow {
+            position: absolute;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%) translateX(-4px);
+            font-size: 18px;
+            color: var(--gray-300);
+            transition: all var(--transition-normal);
+        }
+
+        .card:hover .card-arrow {
+            transform: translateY(-50%) translateX(0);
+            color: var(--navy-500);
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .card-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        .card-meta-item .meta-icon {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        /* ========================================
+           CARD IMAGE
+           ======================================== */
+        .card-image {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 18px;
+            position: relative;
+            background: var(--gray-100);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-image-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 10px;
+            background: rgba(10, 22, 40, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 100px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .card.has-image {
+            padding: 16px;
+        }
+
+        .card.has-image .card-icon {
+            display: none;
+        }
+
+        .card.has-image .card-title {
+            padding: 0 8px;
+        }
+
+        .card.has-image .card-subtitle {
+            padding: 0 8px;
+        }
+
+        .card.has-image .card-meta {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        /* ========================================
+           COMPONENT LIST
+           ======================================== */
+        .component-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .component-item {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: all var(--transition-normal);
+            opacity: 0;
+            transform: translateX(-16px);
+        }
+
+        .component-item:hover {
+            border-color: var(--gray-300);
+            box-shadow: var(--shadow-md);
+            transform: translateX(0);
+        }
+
+        .component-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--navy-900);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .component-info {
+            flex: 1;
+        }
+
+        .component-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy-900);
+            letter-spacing: -0.1px;
+        }
+
+        .component-type {
+            font-size: 12px;
+            color: var(--gray-400);
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .component-badge {
+            padding: 4px 12px;
+            background: rgba(16, 185, 129, 0.08);
+            color: var(--accent-emerald);
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 100px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           BACK BUTTON (Mobile)
+           ======================================== */
+        .back-btn-mobile {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--navy-900);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all var(--transition-fast);
+        }
+
+        .back-btn-mobile:hover {
+            background: var(--navy-700);
+        }
+
+        @media (max-width: 640px) {
+            .back-btn-mobile {
+                display: inline-flex;
+            }
+        }
+
+        /* ========================================
+           EMPTY STATE
+           ======================================== */
+        .empty-state {
+            text-align: center;
+            padding: 80px 24px;
+            color: var(--gray-400);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            opacity: 0.3;
+            margin-bottom: 16px;
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeSlideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeSlideIn 0.4s ease forwards;
+        }
+
+        .animate-in-left {
+            animation: fadeSlideInLeft 0.4s ease forwards;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+            text-align: center;
+        }
+
+        .footer-line {
+            height: 1px;
+            background: var(--gray-200);
+            margin-bottom: 24px;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: var(--gray-400);
+            font-weight: 400;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            .header-top {
+                padding: 16px 0;
+            }
+
+            .header-badge {
+                display: none;
+            }
+
+            .logo-text h1 {
+                font-size: 16px;
+            }
+
+            .main {
+                padding: 24px 16px 60px;
+            }
+
+            .screen-header h2 {
+                font-size: 22px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .card-title {
+                font-size: 16px;
+            }
+
+            .component-item {
+                padding: 16px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+
+            .screen-header h2 {
+                font-size: 20px;
+            }
+
+            .card-grid {
+                gap: 14px;
+            }
+        }
+
+        /* ========================================
+           SCREEN TRANSITIONS
+           ======================================== */
+        .screen-transition-enter {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .screen-transition-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+    <!-- ==========================================
+         HEADER
+         ========================================== -->
+    <header class="header" id="app-header">
+        <div class="header-inner">
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="logo-icon">⚙️</div>
+                    <div class="logo-text">
+                        <h1>Endüstriyel Komponent Gezgini</h1>
+                        <span>Sektör · Makine · Komponent</span>
+                    </div>
+                </div>
+                <div class="header-badge">
+                    <span class="dot"></span>
+                    Sistem Aktif
+                </div>
+            </div>
+            <nav class="breadcrumb-bar" id="breadcrumb"></nav>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         MAIN CONTENT
+         ========================================== -->
+    <main class="main" id="app-content">
+        <!-- Content rendered by JavaScript -->
+    </main>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <p>Endüstriyel Komponent Gezgini &copy; 2026 — Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- ==========================================
+         APPLICATION LOGIC
+         ========================================== -->
+    <script>
+        // ============================================
+        // VERİ SETİ (DATA)
+        // 4 Aşamalı Hiyerarşi:
+        //   Kategori → Sektör → Makine → Komponent
+        //
+        // "Sektörlerideki Standartlar" kategorisi
+        // sektör adımını atlayıp doğrudan makinelere gider.
+        // ============================================
+        const DATA = {
+            categories: [
+                {
+                    id: "sektorlere-ozel-makineler",
+                    name: "Sektörlere Özel Makineler",
+                    icon: "🏭",
+                    description: "Sektöre özel makine ve komponentler",
+                    type: "with-sectors",
+                    sectors: [
+                        {
+                            id: "maden",
+                            name: "Maden Sektörü",
+                            icon: "⛏️",
+                            description: "Maden çıkarma ve işleme ekipmanları",
+                            machines: [
+                                {
+                                    id: "maden-konveyorleri",
+                                    name: "Maden Konveyörleri",
+                                    icon: "🏭",
+                                    description: "Malzeme taşıma ve iletim sistemi",
+                                    components: [
+                                        { name: "Bant", type: "Taşıma Elemanı" },
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Termal Siviç", type: "Koruma Elemanı" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" },
+                                        { name: "PT100", type: "Sensör" },
+                                        { name: "Aksiyal Fan", type: "Soğutma Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "ceneli_kirici",
+                                    name: "Çeneli Kırıcı",
+                                    icon: "🔨",
+                                    description: "Parçalara bölme ve kırma sistemi",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Termal Siviç", type: "Koruma Elemanı" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" },
+                                        { name: "PT100", type: "Sensör" },
+                                        { name: "Aksiyal Fan", type: "Soğutma Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "konik_kirici",
+                                    name: "Konik Kırıcı",
+                                    icon: "🔨",
+                                    description: "Parçalara bölme ve kırma sistemi",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Termal Siviç", type: "Koruma Elemanı" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" },
+                                        { name: "PT100", type: "Sensör" },
+                                        { name: "Aksiyal Fan", type: "Soğutma Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "siklonlar",
+                                    name: "Siklonlar",
+                                    icon: "🔨",
+                                    description: "Santrifüj etkisiyle toz haline getirilen cevheri ayırma",
+                                    components: []
+                                },
+                                {
+                                    id: "flotasyon_hucreleri",
+                                    name: "Flotasyon Hücreleri",
+                                    icon: "🔨",
+                                    description: "Bakırı zenginleştirmek için sülfürlü cevherleri ayrıştırma",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Termal Siviç", type: "Koruma Elemanı" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" },
+                                        { name: "PT100", type: "Sensör" },
+                                        { name: "Aksiyal Fan", type: "Soğutma Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "yogunlastırıcılar",
+                                    name: "Yoğunlaştırıcılar ( Thickeners )",
+                                    icon: "🔨",
+                                    description: "Zenginleştirilmiş bakırın suyunu almak için kullanılma",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Termal Siviç", type: "Koruma Elemanı" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" },
+                                        { name: "PT100", type: "Sensör" },
+                                        { name: "Aksiyal Fan", type: "Soğutma Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "firinlar",
+                                    name: "Fırınlar",
+                                    icon: "🔨",
+                                    description: "Demir ve sülfür safsızlıklarının uzaklaştırıldığı ve bakırın metalik formuna dönüştürüldüğü yerdir",
+                                    components: []
+                                },
+                                {
+                                    id: "konvertorler",
+                                    name: "Konvertörler",
+                                    icon: "🔨",
+                                    description: "Saf oksijen ve hava üflenerek istenmeyen ürünler oksitlenir. Bakır saf hale getirilir.",
+                                    components: []
+                                },
+                                {
+                                    id: "elektrolitik_hucreler",
+                                    name: "Elektrolitik hücreler",
+                                    icon: "🔨",
+                                    description: "Maddeleri iyonlarına ayrıştırma",
+                                    components: []
+                                },
+                                {
+                                    id: "pompalar_ve_kompresorler",
+                                    name: "Pompalar ve kompresörler",
+                                    icon: "🔨",
+                                    description: "Üretim ekipmanlarının çalışmasını sağlama",
+                                    components: []
+                                },
+                                {
+                                    id: "filtre_presler",
+                                    name: "Filtre presler",
+                                    icon: "🔨",
+                                    description: "Bakır cevherinden elde edilen slurry (sulu karışım) içindeki katı ve sıvı bileşenleri ayırma",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Termal Siviç", type: "Koruma Elemanı" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" },
+                                        { name: "PT100", type: "Sensör" },
+                                        { name: "Aksiyal Fan", type: "Soğutma Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "analitik_cihazlar    ",
+                                    name: "Analitik cihazlar",
+                                    icon: "🔨",
+                                    description: "Kimyasal ve fiziksel analizler",
+                                    components: []
+                                }
+                            ]
+                        },
+                        {
+                            id: "enerji",
+                            name: "Enerji Sektörü",
+                            icon: "⚡",
+                            description: "Enerji üretim ve dağıtım sistemleri",
+                            machines: [
+                                {
+                                    id: "buhar-turbini",
+                                    name: "Buhar Türbini",
+                                    icon: "🔄",
+                                    description: "Elektrik üretim türbini",
+                                    components: [
+                                        { name: "Rotor", type: "Döner Eleman" },
+                                        { name: "Stator", type: "Sabit Eleman" }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: "cimento",
+                            name: "Çimento Sektörü",
+                            icon: "🧱",
+                            description: "Çimento üretim ve işleme tesisleri",
+                            machines: [
+                                {
+                                    id: "doner-firin",
+                                    name: "Döner Fırın",
+                                    icon: "🔥",
+                                    description: "Klinker üretim fırını",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Rulman", type: "Destek Elemanı" },
+                                        { name: "Refrakter Tuğla", type: "Isı Yalıtım" }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: "gida",
+                            name: "Gıda Sektörü",
+                            icon: "🍽️",
+                            description: "Gıda üretim ve işleme tesisleri",
+                            machines: [
+                                {
+                                    id: "Sogutma-kulesi",
+                                    name: "Soğutma kulesi",
+                                    icon: "☁️",
+                                    description: "Spiral soğutma hattı",
+                                    components: [
+                                        { name: "Redüktör", type: "Güç İletim" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Rulman", type: "Destek Elemanı" },
+                                        { name: "Takonit", type: "Özel keçe" }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: "cnc-talas-tahliye-depolama",
+                            name: "CNC Talaş Tahliye ve Depolama Sistemleri",
+                            icon: "🔩",
+                            description: "CNC ve metal işleme tezgahlarından çıkan talaşların tahliyesi, taşınması ve depolanması",
+                            machines: [
+                                {
+                                    id: "celik-paletli-konveyor",
+                                    name: "Çelik Paletli Konveyör",
+                                    icon: "⛓️",
+                                    description: "Her türlü talaş tipinde sorunsuz çalışan en yaygın konveyör çeşidi",
+                                    components: [
+                                        { name: "Çelik Palet Zinciri", type: "Taşıma Elemanı" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Gövde (Kanal)", type: "Yapısal Eleman" },
+                                        { name: "Soğutma Sıvısı Tankı", type: "Depolama" },
+                                        { name: "Pompa", type: "Sıvı Transfer" },
+                                        { name: "Seviye Sensörü", type: "Sensör" }
+                                    ]
+                                },
+                                {
+                                    id: "kaucuk-bantli-konveyor",
+                                    name: "Kauçuk Bantlı Konveyör",
+                                    icon: "🏭",
+                                    description: "Talaşsız imalat, kağıt, gıda, tekstil ve plastik sektörlerinde malzeme taşıma",
+                                    components: [
+                                        { name: "Kauçuk Bant", type: "Taşıma Elemanı" },
+                                        { name: "Tahrik Tamburu", type: "Tahrik Sistemi" },
+                                        { name: "Gergi Tamburu", type: "Gergi Sistemi" },
+                                        { name: "Taşıyıcı Roleler", type: "Destek Elemanı" },
+                                        { name: "Redüktörlü Motor", type: "Güç İletim" },
+                                        { name: "Şase", type: "Yapısal Eleman" }
+                                    ]
+                                },
+                                {
+                                    id: "manyetik-konveyor",
+                                    name: "Manyetik Konveyör",
+                                    icon: "🧲",
+                                    description: "Küçük ve ince magnetik metal parçacıkların mıknatıslarla taşınması",
+                                    image: "https://sarigolkonveyor.com/wp/wp-content/uploads/2012/07/manyetik-konveyor-1-1.jpg",
+                                    components: [
+                                        { name: "Mıknatıs Bloğu", type: "Taşıma Elemanı" },
+                                        { name: "Paslanmaz Saç Yüzey", type: "Yapısal Eleman" },
+                                        { name: "Tahrik Ünitesi", type: "Tahrik Sistemi" },
+                                        { name: "Sıyırıcı", type: "Temizleme Elemanı" },
+                                        { name: "Gövde", type: "Yapısal Eleman" }
+                                    ]
+                                },
+                                {
+                                    id: "kazimali-paletli-konveyor",
+                                    name: "Kazımalı (Paletli) Konveyör",
+                                    icon: "🔧",
+                                    description: "Pirinç, döküm, alüminyum gibi kırık ve toz talaşların kazınarak tahliyesi",
+                                    components: [
+                                        { name: "Kazıma Paleti", type: "Taşıma Elemanı" },
+                                        { name: "Zincir Sistemi", type: "Hareket İletim" },
+                                        { name: "Gövde Tabanı", type: "Yapısal Eleman" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Talaş Çıkış Ağzı", type: "Çıkış Elemanı" }
+                                    ]
+                                },
+                                {
+                                    id: "cift-bantli-dram-konveyor",
+                                    name: "Çift Bantlı Dram Konveyör",
+                                    icon: "🥁",
+                                    description: "Entegre dram filtre ve çift bant ile hassas soğutma sıvısı süzme",
+                                    components: [
+                                        { name: "Dram (Tambur) Filtre", type: "Filtrasyon Elemanı" },
+                                        { name: "Çift Bant Sistemi", type: "Taşıma Elemanı" },
+                                        { name: "Filtrasyon Hazinesi", type: "Depolama" },
+                                        { name: "Temiz Sıvı Pompası", type: "Sıvı Transfer" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" }
+                                    ]
+                                },
+                                {
+                                    id: "hurda-konveyoru",
+                                    name: "Hurda Konveyörü",
+                                    icon: "♻️",
+                                    description: "Pres tezgahlarından çıkan ince veya keskin metal hurdaların taşınması",
+                                    components: [
+                                        { name: "Özel Menteşeli Palet", type: "Taşıma Elemanı" },
+                                        { name: "Yanak Yapısı", type: "Koruma Elemanı" },
+                                        { name: "Ağır Hizmet Zinciri", type: "Hareket İletim" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Şase", type: "Yapısal Eleman" }
+                                    ]
+                                },
+                                {
+                                    id: "sicak-parca-tasima-konveyoru",
+                                    name: "Sıcak Parça Taşıma Konveyörü",
+                                    icon: "🔥",
+                                    description: "900–1250 °C arası yüksek sıcaklıktaki parçaların deformasyonsuz nakli",
+                                    components: [
+                                        { name: "Isıya Dayanıklı Palet", type: "Taşıma Elemanı" },
+                                        { name: "Isı Kalkanı", type: "Koruma Elemanı" },
+                                        { name: "Ağır Hizmet Zinciri", type: "Hareket İletim" },
+                                        { name: "Soğutma Sistemi", type: "Termal Yönetim" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Yüksek Sıcaklık Sensörü", type: "Sensör" }
+                                    ]
+                                },
+                                {
+                                    id: "helezon-konveyor",
+                                    name: "Helezon Konveyör",
+                                    icon: "🌀",
+                                    description: "Toz, granül ve talaş gibi küçük taneli malzemelerin kapalı sistemde taşınması",
+                                    components: [
+                                        { name: "Helezon Mili", type: "Taşıma Elemanı" },
+                                        { name: "Tüp/Oluk Gövde", type: "Yapısal Eleman" },
+                                        { name: "Yatak Takımları", type: "Destek Elemanı" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Giriş/Çıkış Ağzı", type: "Bağlantı Elemanı" }
+                                    ]
+                                },
+                                {
+                                    id: "talas-arabasi",
+                                    name: "Talaş Arabası",
+                                    icon: "🛒",
+                                    description: "Konveyör çıkışlarına yerleştirilen frenli ve devrilme mekanizmalı metal toplama arabası",
+                                    components: [
+                                        { name: "Çelik Kasa", type: "Yapısal Eleman" },
+                                        { name: "Frenli Tekerlekler", type: "Hareket Elemanı" },
+                                        { name: "Devrilme Mekanizması", type: "Mekanik Sistem" },
+                                        { name: "Sıvı Tahliye Vanası", type: "Sıvı Yönetim" },
+                                        { name: "Forklift Cebi", type: "Taşıma Aparatı" }
+                                    ]
+                                },
+                                {
+                                    id: "talas-silosu",
+                                    name: "Talaş Silosu",
+                                    icon: "🏗️",
+                                    description: "Talaşların yüksek kapasitede biriktirilmesi ve hidrolik boşaltma ile aktarılması",
+                                    components: [
+                                        { name: "Silo Gövdesi", type: "Yapısal Eleman" },
+                                        { name: "Hidrolik Boşaltma Kapağı", type: "Mekanik Sistem" },
+                                        { name: "Seviye Sensörü", type: "Sensör" },
+                                        { name: "Giriş Konveyörü", type: "Taşıma Elemanı" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "hidrolik-asansor",
+                                    name: "Hidrolik Talaş Yükleme/Boşaltma Asansörü",
+                                    icon: "⬆️",
+                                    description: "Talaş arabalarını hidrolik sistemle kaldırıp devirerek silolara boşaltma",
+                                    components: [
+                                        { name: "Hidrolik Silindir", type: "Tahrik Sistemi" },
+                                        { name: "Hidrolik Güç Ünitesi", type: "Güç Kaynağı" },
+                                        { name: "Platform", type: "Yapısal Eleman" },
+                                        { name: "Emniyet Kilidi", type: "Güvenlik Elemanı" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "zincirli-asansor",
+                                    name: "Zincirli Talaş Yükleme/Boşaltma Asansörü",
+                                    icon: "⛓️",
+                                    description: "Ağır talaş arabalarının zincir tahrik ile güvenli yükleme/boşaltma",
+                                    components: [
+                                        { name: "Zincir Tahrik Sistemi", type: "Hareket İletim" },
+                                        { name: "Kaldırma Platformu", type: "Yapısal Eleman" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Emniyet Freni", type: "Güvenlik Elemanı" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: "cnc-sogutma-sivisi-filtrasyon-sistemleri",
+                            name: "CNC Soğutma Sıvısı Filtrasyon Sistemleri",
+                            icon: "🔬",
+                            description: "Soğutma sıvılarının mikro seviyede temizlenmesi ve geri kazanımı",
+                            machines: [
+                                {
+                                    id: "duz-bant-filtre",
+                                    name: "Düz Bant Filtre",
+                                    icon: "📄",
+                                    description: "Rulo kağıt filtre ile soğutma sıvılarını mikro seviyede temizleyen otomatik sistem",
+                                    components: [
+                                        { name: "Rulo Kağıt Filtre", type: "Filtrasyon Elemanı" },
+                                        { name: "Bant Tahrik Sistemi", type: "Tahrik Sistemi" },
+                                        { name: "Kirli Sıvı Havuzu", type: "Depolama" },
+                                        { name: "Temiz Sıvı Hazinesi", type: "Depolama" },
+                                        { name: "Seviye Şalteri", type: "Sensör" },
+                                        { name: "Pompa", type: "Sıvı Transfer" }
+                                    ]
+                                },
+                                {
+                                    id: "derin-bant-filtre",
+                                    name: "Derin Bant Filtre",
+                                    icon: "📐",
+                                    description: "Yüksek sıvı sütunu basıncı ile filtre ömrünü uzatan derin yataklı tasarım",
+                                    components: [
+                                        { name: "Derin Yatak Hazine", type: "Yapısal Eleman" },
+                                        { name: "Rulo Kağıt Filtre", type: "Filtrasyon Elemanı" },
+                                        { name: "Otomatik İlerleme Sistemi", type: "Otomasyon" },
+                                        { name: "Kirli Sıvı Girişi", type: "Bağlantı Elemanı" },
+                                        { name: "Temiz Sıvı Çıkışı", type: "Bağlantı Elemanı" },
+                                        { name: "Pompa", type: "Sıvı Transfer" }
+                                    ]
+                                },
+                                {
+                                    id: "manyetik-unite",
+                                    name: "Manyetik Ünite",
+                                    icon: "🧲",
+                                    description: "Demir esaslı parçacıkları mıknatıslı tambur ile yakalayan ön filtrasyon ünitesi",
+                                    components: [
+                                        { name: "Manyetik Tambur", type: "Filtrasyon Elemanı" },
+                                        { name: "Sıyırıcı Bıçak", type: "Temizleme Elemanı" },
+                                        { name: "Gövde", type: "Yapısal Eleman" },
+                                        { name: "Tahrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Talaş Toplama Kanalı", type: "Çıkış Elemanı" }
+                                    ]
+                                },
+                                {
+                                    id: "merkezi-filtrasyon",
+                                    name: "Merkezi Filtrasyon",
+                                    icon: "🏭",
+                                    description: "Tüm CNC tezgahlarının soğutma sıvılarını tek merkezde arıtan tesis çözümü",
+                                    components: [
+                                        { name: "Merkezi Filtre Ünitesi", type: "Filtrasyon Elemanı" },
+                                        { name: "Toplama Boruları", type: "Sıvı İletim" },
+                                        { name: "Ana Pompa İstasyonu", type: "Sıvı Transfer" },
+                                        { name: "Dağıtım Manifoldu", type: "Sıvı İletim" },
+                                        { name: "Otomasyon Panosu", type: "Elektrik/Otomasyon" },
+                                        { name: "Temiz Sıvı Tankı", type: "Depolama" }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            id: "talas-donusum-sistemleri",
+                            name: "Talaş Dönüşüm Sistemleri",
+                            icon: "♻️",
+                            description: "Talaşların öğütülmesi, kırılması, kurutulması ve geri dönüşüm sistemleri",
+                            machines: [
+                                {
+                                    id: "tek-saft-ogutucu",
+                                    name: "Tek Şaftlı Metal Talaş Öğütücü",
+                                    icon: "⚙️",
+                                    description: "Tek şaftlı yapı ile metal talaşlarını parçalayan kompakt öğütücü",
+                                    components: [
+                                        { name: "Tek Şaft Rotoru", type: "Kesme Elemanı" },
+                                        { name: "Sabit Bıçaklar", type: "Kesme Elemanı" },
+                                        { name: "Elek (Screen)", type: "Boyut Kontrol" },
+                                        { name: "Hidrolik Ünite", type: "Güç Kaynağı" },
+                                        { name: "Gövde", type: "Yapısal Eleman" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "cift-saft-ogutucu",
+                                    name: "Çift Şaftlı Metal Talaş Öğütücü",
+                                    icon: "⚙️",
+                                    description: "Zıt dönen bıçaklarla talaş hacmini %15'e kadar küçülten planet redüktörlü öğütücü",
+                                    components: [
+                                        { name: "Çift Şaft Rotoru", type: "Kesme Elemanı" },
+                                        { name: "Zıt Dönen Bıçaklar", type: "Kesme Elemanı" },
+                                        { name: "Planet Redüktör", type: "Güç İletim" },
+                                        { name: "Elektrik Motoru", type: "Tahrik Sistemi" },
+                                        { name: "Gövde", type: "Yapısal Eleman" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "dikey-kirici",
+                                    name: "Dikey Kırıcılar",
+                                    icon: "🔨",
+                                    description: "Sarmal ve uzun talaşları homojen boyutlarda kıran otomatik çene açmalı dikey sistem",
+                                    components: [
+                                        { name: "Kırıcı Çeneler", type: "Kesme Elemanı" },
+                                        { name: "Otomatik Çene Açma Mekanizması", type: "Güvenlik Sistemi" },
+                                        { name: "Dikey Gövde", type: "Yapısal Eleman" },
+                                        { name: "Redüktörlü Motor", type: "Tahrik Sistemi" },
+                                        { name: "Talaş Giriş Hunisi", type: "Bağlantı Elemanı" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "dikey-santrifuj",
+                                    name: "Dikey Santrifüj",
+                                    icon: "🌀",
+                                    description: "Islak talaşlardaki kesme/bor yağını yüksek devirde sıkarak geri kazanan dikey model",
+                                    components: [
+                                        { name: "Dikey Tambur", type: "Döner Eleman" },
+                                        { name: "Filtre Sepeti", type: "Filtrasyon Elemanı" },
+                                        { name: "Ana Motor", type: "Tahrik Sistemi" },
+                                        { name: "Hava Üfleme Hattı", type: "Pnömatik Sistem" },
+                                        { name: "Yağ Toplama Haznesi", type: "Sıvı Geri Kazanım" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "yatay-santrifuj",
+                                    name: "Yatay Santrifüj",
+                                    icon: "🌀",
+                                    description: "Konik tambur ile yüksek G kuvveti üreterek yağı tam ayrıştıran yüksek kapasiteli model",
+                                    components: [
+                                        { name: "Yatay Konik Tambur", type: "Döner Eleman" },
+                                        { name: "Helezon Konveyör (İç)", type: "Taşıma Elemanı" },
+                                        { name: "Ana Motor", type: "Tahrik Sistemi" },
+                                        { name: "Diferansiyel Redüktör", type: "Güç İletim" },
+                                        { name: "Yağ Toplama Haznesi", type: "Sıvı Geri Kazanım" },
+                                        { name: "Kontrol Panosu", type: "Elektrik/Otomasyon" }
+                                    ]
+                                },
+                                {
+                                    id: "sistem-cozumleri",
+                                    name: "Entegre Sistem Çözümleri",
+                                    icon: "🔗",
+                                    description: "Talaş kırma, kurutma, yağ geri kazanımı ve depolama içeren anahtar teslim tesis projeleri",
+                                    components: [
+                                        { name: "Talaş Kırma Ünitesi", type: "Dönüşüm Sistemi" },
+                                        { name: "Kurutma Ünitesi (Santrifüj)", type: "Dönüşüm Sistemi" },
+                                        { name: "Yağ Geri Kazanım Sistemi", type: "Sıvı Geri Kazanım" },
+                                        { name: "Asansörlü Yükleme Sistemi", type: "Taşıma Sistemi" },
+                                        { name: "Depolama Silosu", type: "Depolama" },
+                                        { name: "Merkezi Otomasyon Panosu", type: "Elektrik/Otomasyon" },
+                                        { name: "SCADA Sistemi", type: "Yazılım/İzleme" }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "standartlar",
+                    name: "Sektörlerdeki Standartlar",
+                    icon: "📐",
+                    description: "Tüm sektörlerde ortak kullanılan standart makineler",
+                    type: "direct-machines",
+                    machines: [
+                        {
+                            id: "konveyor",
+                            name: "Konveyör",
+                            icon: "🏭",
+                            description: "Standart konveyör sistemi",
+                            components: []
+                        },
+                        {
+                            id: "vinc",
+                            name: "Vinç",
+                            icon: "🏗️",
+                            description: "Yük kaldırma ve taşıma sistemi",
+                            components: []
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // ============================================
+        // UYGULAMA DURUMU (STATE)
+        // 4 seviyeli navigasyon:
+        //   categories → sectors → machines → components
+        // ============================================
+        const state = {
+            currentView: "categories",
+            selectedCategory: null,
+            selectedSector: null,
+            selectedMachine: null
+        };
+
+        // ============================================
+        // DOM REFERANSLARI
+        // ============================================
+        const contentEl = document.getElementById("app-content");
+        const breadcrumbEl = document.getElementById("breadcrumb");
+
+        // ============================================
+        // YARDIMCI FONKSİYONLAR
+        // ============================================
+        function getCategory(catId) {
+            return DATA.categories.find(c => c.id === catId);
+        }
+
+        function getSector(catId, sectorId) {
+            const cat = getCategory(catId);
+            return cat && cat.sectors ? cat.sectors.find(s => s.id === sectorId) : null;
+        }
+
+        function getMachine(catId, sectorId, machineId) {
+            // "Sektörlere Özel Makineler" → sektör altında makine
+            if (sectorId) {
+                const sector = getSector(catId, sectorId);
+                return sector ? sector.machines.find(m => m.id === machineId) : null;
+            }
+            // "Standartlar" → doğrudan kategori altında makine
+            const cat = getCategory(catId);
+            return cat && cat.machines ? cat.machines.find(m => m.id === machineId) : null;
+        }
+
+        // ============================================
+        // BREADCRUMB OLUŞTURMA
+        // ============================================
+        function renderBreadcrumb() {
+            let html = '';
+            const v = state.currentView;
+
+            // 1) Ana Sayfa
+            const isHome = v === "categories";
+            html += `
+                <div class="breadcrumb-item ${!isHome ? 'clickable' : 'active'}"
+                     ${!isHome ? 'onclick="navigateTo(\'categories\')"' : ''}>
+                    <span class="breadcrumb-icon">🏠</span>
+                    Ana Sayfa
+                </div>
+            `;
+
+            // 2) Kategori adı
+            if (state.selectedCategory) {
+                const cat = getCategory(state.selectedCategory);
+                if (cat) {
+                    const isClickable = v !== "sectors" || cat.type === "direct-machines";
+                    const isActive = (v === "sectors" && cat.type === "with-sectors") ||
+                                     (v === "machines" && cat.type === "direct-machines" && !state.selectedSector);
+                    html += `<span class="breadcrumb-separator">›</span>`;
+                    html += `
+                        <div class="breadcrumb-item ${!isActive ? 'clickable' : 'active'}"
+                             ${!isActive ? `onclick="navigateTo('${cat.type === 'with-sectors' ? 'sectors' : 'machines'}', '${cat.id}')"` : ''}>
+                            ${cat.name}
+                        </div>
+                    `;
+                }
+            }
+
+            // 3) Sektör adı (sadece "Sektörlere Özel Makineler" için)
+            if (state.selectedSector && state.selectedCategory) {
+                const sector = getSector(state.selectedCategory, state.selectedSector);
+                if (sector) {
+                    const isActive = v === "machines";
+                    html += `<span class="breadcrumb-separator">›</span>`;
+                    html += `
+                        <div class="breadcrumb-item ${!isActive ? 'clickable' : 'active'}"
+                             ${!isActive ? `onclick="navigateTo('machines', '${state.selectedCategory}', '${sector.id}')"` : ''}>
+                            ${sector.name}
+                        </div>
+                    `;
+                }
+            }
+
+            // 4) Makine adı
+            if (state.selectedMachine) {
+                const machine = getMachine(state.selectedCategory, state.selectedSector, state.selectedMachine);
+                if (machine) {
+                    html += `<span class="breadcrumb-separator">›</span>`;
+                    html += `
+                        <div class="breadcrumb-item active">
+                            ${machine.name}
+                        </div>
+                    `;
+                }
+            }
+
+            breadcrumbEl.innerHTML = html;
+        }
+
+        // ============================================
+        // ANIMASYON YARDIMCILARI
+        // ============================================
+        function animateCards(selector) {
+            const items = document.querySelectorAll(selector);
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${index * 80 + 100}ms`;
+                item.classList.add('animate-in');
+            });
+        }
+
+        function animateComponents(selector) {
+            const items = document.querySelectorAll(selector);
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${index * 60 + 100}ms`;
+                item.classList.add('animate-in-left');
+            });
+        }
+
+        // ============================================
+        // EKRAN 1: KATEGORİLER (Ana Ekran)
+        // ============================================
+        function renderCategories() {
+            let html = `
+                <div class="screen-header">
+                    <h2>Endüstriyel Komponent Gezgini</h2>
+                    <p>Bir kategori seçerek keşfe başlayın</p>
+                </div>
+                <div class="card-grid">
+            `;
+
+            DATA.categories.forEach(cat => {
+                // İstatistik hesapla
+                let machineCount = 0;
+                let componentCount = 0;
+                let sectorCount = 0;
+
+                if (cat.type === "with-sectors" && cat.sectors) {
+                    sectorCount = cat.sectors.length;
+                    cat.sectors.forEach(s => {
+                        machineCount += s.machines.length;
+                        s.machines.forEach(m => { componentCount += m.components.length; });
+                    });
+                } else if (cat.machines) {
+                    machineCount = cat.machines.length;
+                    cat.machines.forEach(m => { componentCount += m.components.length; });
+                }
+
+                const clickAction = cat.type === "with-sectors"
+                    ? `navigateTo('sectors', '${cat.id}')`
+                    : `navigateTo('machines', '${cat.id}')`;
+
+                let metaHtml = '';
+                if (sectorCount > 0) {
+                    metaHtml += `
+                        <div class="card-meta-item">
+                            <span class="meta-icon">🏢</span>
+                            ${sectorCount} Sektör
+                        </div>
+                    `;
+                }
+                metaHtml += `
+                    <div class="card-meta-item">
+                        <span class="meta-icon">🔧</span>
+                        ${machineCount} Makine
+                    </div>
+                `;
+
+                html += `
+                    <div class="card" onclick="${clickAction}">
+                        <div class="card-icon sector">${cat.icon}</div>
+                        <div class="card-title">${cat.name}</div>
+                        <div class="card-subtitle">${cat.description}</div>
+                        <div class="card-meta">
+                            ${metaHtml}
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            contentEl.innerHTML = html;
+            requestAnimationFrame(() => animateCards('.card'));
+        }
+
+        // ============================================
+        // EKRAN 2: SEKTÖRLER
+        // (Sadece "Sektörlere Özel Makineler" kategorisi için)
+        // ============================================
+        function renderSectors(catId) {
+            const cat = getCategory(catId);
+            if (!cat || !cat.sectors) return;
+
+            let html = `
+                <button class="back-btn-mobile" onclick="navigateTo('categories')">
+                    ← Ana Sayfaya Dön
+                </button>
+                <div class="screen-header">
+                    <h2>${cat.icon} ${cat.name}</h2>
+                    <p>${cat.description}</p>
+                    <div class="count-badge">
+                        🏢 ${cat.sectors.length} Sektör
+                    </div>
+                </div>
+                <div class="card-grid">
+            `;
+
+            cat.sectors.forEach(sector => {
+                const machineCount = sector.machines.length;
+                const componentCount = sector.machines.reduce((a, m) => a + m.components.length, 0);
+
+                html += `
+                    <div class="card" onclick="navigateTo('machines', '${catId}', '${sector.id}')">
+                        <div class="card-icon sector">${sector.icon}</div>
+                        <div class="card-title">${sector.name}</div>
+                        <div class="card-subtitle">${sector.description}</div>
+                        <div class="card-meta">
+                            <div class="card-meta-item">
+                                <span class="meta-icon">🔧</span>
+                                ${machineCount} Makine
+                            </div>
+                            <div class="card-meta-item">
+                                <span class="meta-icon">📦</span>
+                                ${componentCount} Komponent
+                            </div>
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            contentEl.innerHTML = html;
+            requestAnimationFrame(() => animateCards('.card'));
+        }
+
+        // ============================================
+        // EKRAN 3: MAKİNELER
+        // ============================================
+        function renderMachines(catId, sectorId) {
+            const cat = getCategory(catId);
+            if (!cat) return;
+
+            let machines = [];
+            let parentName = "";
+            let parentIcon = "";
+            let parentDesc = "";
+            let backAction = "";
+
+            if (cat.type === "with-sectors" && sectorId) {
+                // Sektör altındaki makineler
+                const sector = getSector(catId, sectorId);
+                if (!sector) return;
+                machines = sector.machines;
+                parentName = sector.name;
+                parentIcon = sector.icon;
+                parentDesc = sector.description;
+                backAction = `navigateTo('sectors', '${catId}')`;
+            } else {
+                // Standartlar: doğrudan kategori altındaki makineler
+                machines = cat.machines || [];
+                parentName = cat.name;
+                parentIcon = cat.icon;
+                parentDesc = cat.description;
+                backAction = `navigateTo('categories')`;
+            }
+
+            let html = `
+                <button class="back-btn-mobile" onclick="${backAction}">
+                    ← Geri Dön
+                </button>
+                <div class="screen-header">
+                    <h2>${parentIcon} ${parentName}</h2>
+                    <p>${parentDesc}</p>
+                    <div class="count-badge">
+                        🔧 ${machines.length} Makine
+                    </div>
+                </div>
+                <div class="card-grid">
+            `;
+
+            machines.forEach(machine => {
+                const compCount = machine.components.length;
+                const compLabel = compCount > 0 ? `${compCount} Komponent` : "Henüz komponent yok";
+                const hasImage = !!machine.image;
+
+                let imageHtml = '';
+                if (hasImage) {
+                    imageHtml = `
+                        <div class="card-image">
+                            <img src="${machine.image}" alt="${machine.name}" loading="lazy" />
+                            <div class="card-image-badge">📷 Görsel</div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                    <div class="card ${hasImage ? 'has-image' : ''}" onclick="navigateTo('components', '${catId}', '${sectorId || ''}', '${machine.id}')">
+                        ${imageHtml}
+                        <div class="card-icon machine">${machine.icon}</div>
+                        <div class="card-title">${machine.name}</div>
+                        <div class="card-subtitle">${machine.description}</div>
+                        <div class="card-meta">
+                            <div class="card-meta-item">
+                                <span class="meta-icon">📦</span>
+                                ${compLabel}
+                            </div>
+                        </div>
+                        <span class="card-arrow">→</span>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            contentEl.innerHTML = html;
+            requestAnimationFrame(() => animateCards('.card'));
+        }
+
+        // ============================================
+        // EKRAN 4: KOMPONENTLER
+        // ============================================
+        function renderComponents(catId, sectorId, machineId) {
+            const machine = getMachine(catId, sectorId || null, machineId);
+            if (!machine) return;
+
+            const cat = getCategory(catId);
+            let backAction = "";
+            let parentLabel = "";
+
+            if (sectorId) {
+                const sector = getSector(catId, sectorId);
+                backAction = `navigateTo('machines', '${catId}', '${sectorId}')`;
+                parentLabel = sector ? sector.name : "";
+            } else {
+                backAction = `navigateTo('machines', '${catId}')`;
+                parentLabel = cat ? cat.name : "";
+            }
+
+            if (machine.components.length === 0) {
+                let html = `
+                    <button class="back-btn-mobile" onclick="${backAction}">
+                        ← Geri Dön
+                    </button>
+                    <div class="screen-header">
+                        <h2>${machine.icon} ${machine.name}</h2>
+                        <p>${parentLabel} — Komponent listesi</p>
+                    </div>
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <h3>Henüz komponent eklenmemiş</h3>
+                        <p>Bu makineye ait komponentler yakında eklenecektir.</p>
+                        <p>Yada bu komponentler henüz bulunamamıştır.</p>
+                    </div>
+                `;
+                contentEl.innerHTML = html;
+                return;
+            }
+
+            let html = `
+                <button class="back-btn-mobile" onclick="${backAction}">
+                    ← Geri Dön
+                </button>
+                <div class="screen-header">
+                    <h2>${machine.icon} ${machine.name}</h2>
+                    <p>${parentLabel} — Komponent listesi</p>
+                    <div class="count-badge">
+                        📦 ${machine.components.length} Komponent
+                    </div>
+                </div>
+                <div class="component-list">
+            `;
+
+            machine.components.forEach((component, index) => {
+                html += `
+                    <div class="component-item">
+                        <div class="component-number">${String(index + 1).padStart(2, '0')}</div>
+                        <div class="component-info">
+                            <div class="component-name">${component.name}</div>
+                            <div class="component-type">${component.type}</div>
+                        </div>
+                        <div class="component-badge">Aktif</div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            contentEl.innerHTML = html;
+            requestAnimationFrame(() => animateComponents('.component-item'));
+        }
+
+        // ============================================
+        // NAVİGASYON
+        // ============================================
+        function navigateTo(view, catId, sectorId, machineId) {
+            state.currentView = view;
+
+            switch (view) {
+                case "categories":
+                    state.selectedCategory = null;
+                    state.selectedSector = null;
+                    state.selectedMachine = null;
+                    renderBreadcrumb();
+                    renderCategories();
+                    break;
+
+                case "sectors":
+                    state.selectedCategory = catId;
+                    state.selectedSector = null;
+                    state.selectedMachine = null;
+                    renderBreadcrumb();
+                    renderSectors(catId);
+                    break;
+
+                case "machines":
+                    state.selectedCategory = catId;
+                    state.selectedSector = sectorId || null;
+                    state.selectedMachine = null;
+                    renderBreadcrumb();
+                    renderMachines(catId, sectorId || null);
+                    break;
+
+                case "components":
+                    state.selectedCategory = catId;
+                    state.selectedSector = sectorId || null;
+                    state.selectedMachine = machineId;
+                    renderBreadcrumb();
+                    renderComponents(catId, sectorId || null, machineId);
+                    break;
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================
+        // KEYBOARD NAVİGASYON
+        // ============================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' || e.key === 'Backspace') {
+                const v = state.currentView;
+                if (v === 'components') {
+                    if (state.selectedSector) {
+                        navigateTo('machines', state.selectedCategory, state.selectedSector);
+                    } else {
+                        navigateTo('machines', state.selectedCategory);
+                    }
+                } else if (v === 'machines') {
+                    const cat = getCategory(state.selectedCategory);
+                    if (cat && cat.type === 'with-sectors') {
+                        navigateTo('sectors', state.selectedCategory);
+                    } else {
+                        navigateTo('categories');
+                    }
+                } else if (v === 'sectors') {
+                    navigateTo('categories');
+                }
+            }
+        });
+
+        // ============================================
+        // UYGULAMAYI BAŞLAT
+        // ============================================
+        navigateTo("categories");
+    </script>
+</body>
+</html>
